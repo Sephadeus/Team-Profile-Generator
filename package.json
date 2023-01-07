@@ -1,4 +1,13 @@
 {
+"name": "team-profile-generator",
+"version": "1.0.0",
+"description": "",
+"main": "index.js",
+"scripts": {
+  "test": "jest",
+  "start": "node index.js"
+},
+"author": "Sephadeus",
   "devDependencies": {
     "jest": "^29.3.1"
   },
@@ -7,3 +16,4 @@
     "inquirer": "^9.1.4"
   }
 }
+
