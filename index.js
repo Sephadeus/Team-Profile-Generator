@@ -63,7 +63,7 @@ const addManager = () => {
     ]).then(answers => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         myTeam.push(newManager);
-        teamBuilder();
+        teamBuilderMenu();
     })
 };
 
