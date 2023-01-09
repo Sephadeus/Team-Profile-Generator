@@ -3,7 +3,7 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const fs = require("fs");
-const generateTeamHTML = require("./utils/generateHTML");
+const generateTeamHTML = require("./utils/generateHTML.js");
 const myTeam = [];
 
 const addManager = () => {
@@ -84,13 +84,15 @@ const teamBuilderMenu = () => {
             addIntern();
             break;
         default:
-            generateTeamHTML(myTeam);
+            generateTeam();
             break;
     }
  })
 }
 
 const addEngineer = () => {
+    console.log("Answer the following questions to add a new engineer to your team: ");
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -153,6 +155,7 @@ const addEngineer = () => {
 
 
 const addIntern = () => {
+    console.log("Answer the following questions to add a new intern to your team: ");
     return inquirer.prompt([
         {
             type: 'input',
@@ -212,6 +215,17 @@ const addIntern = () => {
         teamBuilderMenu();
     })
 };
+
+const generateTeam = () => {
+console.log(`
+=========================
+\nFinish building your team
+\n========================
+`);
+
+fs.appendFile("./dist/myTeam.html", generateTeamHTML(myTeam), "utf-8");
+
+}
 
 addManager();
 
