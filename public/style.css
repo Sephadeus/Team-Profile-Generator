@@ -1,69 +1,106 @@
 :root {
-    --theme: rgba(100, 154, 128, 0.981);
-    --headline: white;
+  --theme: rgba(100, 154, 128, 0.981);
+  --headline: #ffffff;
+  --manager: rgba(117, 5, 5, 1);
+  --engineer: rgb(33, 6, 133);
+  --intern: rgb(101, 151, 15);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-shadow: 2px 2px gray;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-shadow: 2px 2px rgb(21, 20, 20);
+}
+body {
+background-color: rgba(193, 237, 215, 0.7);
 }
 
-
-
 .header {
+  display: flex;
+  background-color: var(--theme);
+  height: 99px;
+  width: 50%;
+}
+
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+  }
+
+  .profile {
     display: flex;
-    background-color: var(--theme);
-    height: 99px;
-    width: 60%;
+    flex-wrap: wrap;
+    text-align: center;
+    max-height: 400px;
+    width: 90vw;
+  }
 }
 
 .headline {
-margin: auto;
-color: var(--headline);
+  margin: auto;
+  color: var(--headline);
 }
 
 .team {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
 }
 
 .profile {
-display: flex;
-flex-direction: row;
-background-color: var(--theme);
-color: var(--headline);
-margin: 25px;
-padding: 15px;
-text-align: right;
-display: inline-block;
-height: 250px;
-width: 80vw;
+  color: var(--headline);
+  margin: 25px;
+  padding: 15px;
+  text-align: right;
+  display: inline-block;
+  min-height: 250px;
+  min-width: 50vw;
+
+  box-shadow: 5px 5px gray;
+}
+
+.manager {
+  background-color: var(--manager);
+}
+
+.engineer {
+  background-color: var(--engineer);
+}
+
+.intern {
+  background-color: var(--intern);
 }
 
 .employee-name {
-    border-bottom: 2px solid white;
-    font-size: 1.75rem;
-
+  margin: auto;
+  width: fit-content;
+  border-bottom: 2px solid white;
+  font-size: 1.75rem;
 }
 
 ul {
-    background-color: rgb(77, 77, 77);
-    padding: 10px;
-    list-style: none;
-    line-height: 1.5rem;
+  background-color: rgb(77, 77, 77);
+  list-style: none;
+  line-height: 1.5rem;
+  padding: 5px;
+}
+
+li {
+  padding: 5px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 a {
-    color: var(--headline);
-    text-decoration: none;
+  color: var(--headline);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: overline;
+  text-decoration: overline;
 }
-

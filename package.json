@@ -7,7 +7,7 @@
   "test": "jest",
   "start": "node index.js"
 },
-"author": "Sephadeus",
+"author": "sephadeus",
   "devDependencies": {
     "jest": "^29.3.1"
   },
