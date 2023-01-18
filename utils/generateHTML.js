@@ -1,12 +1,9 @@
 const buildTeam = (team) => {
+  let page = [];
 
-    console.log(team);
-
-    let page = [];
-    
-//Manager profile template
-    const managerProfile = manager => {
-        let managerHTML = `
+  //Manager profile template
+  const managerProfile = (manager) => {
+    const managerHTML = `
         <section class="profile manager">
             <h2 class="employee-name">${manager.name}</h2>
             <br>
@@ -17,14 +14,13 @@ const buildTeam = (team) => {
                 <li>ID: ${manager.id}</li>
             </ul>
         </section>`;
+    console.log(managerHTML);
+    return managerHTML;
+  };
 
-         page.push(managerHTML);
-         console.log(page)
-    }
-
-    //Engineer profile template
-    const engineerProfile = engineer => {
-        let engineerHTML = `<section class="profile engineer">
+  //Engineer profile template
+  const engineerProfile = (engineer) => {
+    let engineerHTML = `<section class="profile engineer">
         <h2 class="employee-name">${engineer.name}</h2>
         <br>
         <ul>
@@ -34,13 +30,13 @@ const buildTeam = (team) => {
             <li>ID: ${engineer.id}</li>
         </ul>
     </section>`;
+    console.log(engineerHTML);
+    return engineerHTML;
+  };
 
-    page.push(engineerHTML);
-    }
-
-    //Intern profile template
-    const internProfile = intern => {
-        let internHTML = `<section class="profile intern">
+  //Intern profile template
+  const internProfile = (intern) => {
+    let internHTML = `<section class="profile intern">
         <h2 class="employee-name">${intern.name}</h2>
         <br>
         <ul>
@@ -50,41 +46,74 @@ const buildTeam = (team) => {
             <li>ID: ${intern.id}</li>
         </ul>
     </section>`;
+    console.log(internHTML);
+    return internHTML;
+  };
 
-    page.push(internHTML);
+  for (let i = 0; i < team.length; i++) {
+    if (team[i].getRole == "Manager") {
+      managerProfile(team[i]);
+      console.log(managerHTML);
+      page.push(managerHTML);
+      console.log(page);
     }
+     if (team[i].getRole == "Engineer") {
+      engineerProfile(team[i]);
+      console.log(engineerHTML);
+      page.push(engineerHTML);
+      console.log(page);
+    } 
+    if (team[i].getRole == "Intern") {
+      internProfile(team[i]);
+      console.log(internHTML);
+      page.push(internHTML);
+      console.log(page);
+    } 
 
-    for(let i = 0; i < team.length; i++) {
+    page.join(``);
+    console.log(page);
+  }
 
-        if(team[i].getRole == "Manager") {
-            managerProfile(team[i]);
-        } if (team[i].getRole == "Engineer") {
-            engineerProfile(team[i]);
-        } if(team[i].getRole == "Intern") {
-            internProfile(team[i]);
-        } 
+  console.log(page); 
 
-    return page.join('');
-}
-}
-
-module.exports = team => {
-    return `<!DOCTYPE html>
-    <html lang="en">
-    <head>
+  return `<!DOCTYPE html>
+     <html lang="en">
+     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Team Profile Generator</title>
-    </head>
-    <header class="header">
-        <h1 class="headline">Our Team:</h1>
-    </header>
-    <body>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="style.css">
+         <title>Team Profile Generator</title>
+     </head>
+     <header class="header">
+         <h1 class="headline">Our Team:</h1>
+     </header>
+     <body>
         <div id="team" class="team">
-            ${buildTeam(team)}
-        </div>
-    </body>
-    </html>`;
-}
+             ${page}
+         </div>
+     </body>
+     </html>`;
+};
+
+module.exports = { buildTeam };
+// module.exports = team => {
+//     return `<!DOCTYPE html>
+//     <html lang="en">
+//     <head>
+//         <meta charset="UTF-8">
+//         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <link rel="stylesheet" href="style.css">
+//         <title>Team Profile Generator</title>
+//     </head>
+//     <header class="header">
+//         <h1 class="headline">Our Team:</h1>
+//     </header>
+//     <body>
+//         <div id="team" class="team">
+//             ${buildTeam(team)}
+//         </div>
+//     </body>
+//     </html>`;
+// }

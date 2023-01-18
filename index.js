@@ -3,7 +3,7 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const fs = require("fs");
-const generateTeamHTML = require("./utils/generateHTML.js");
+const { buildTeam } = require("./utils/generateHTML.js");
 var myTeam = [];
 
 const addManager = () => {
@@ -223,13 +223,14 @@ const addIntern = () => {
 };
 
 const generateTeam = () => {
-console.log(`
+
+fs.writeFileSync("./dist/myTeam.html", buildTeam(myTeam));
+  
+return console.log(`
 =========================
 \nTeam Profiles Built Successfully!
 \n========================
 `);
-
-return fs.writeFileSync("./dist/myTeam.html", generateTeamHTML(myTeam));
 }
 
 addManager();
