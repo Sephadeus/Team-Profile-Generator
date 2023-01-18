@@ -4,7 +4,7 @@ const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const fs = require("fs");
 const generateTeamHTML = require("./utils/generateHTML.js");
-const myTeam = [];
+var myTeam = [];
 
 const addManager = () => {
     return inquirer.prompt([
@@ -62,7 +62,9 @@ const addManager = () => {
         }
     ]).then(answers => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        myTeam.push(newManager);
+        myTeam.push(newManager); 
+        console.log(newManager);
+        console.log(myTeam);
         teamBuilderMenu();
     })
 };
@@ -149,6 +151,8 @@ const addEngineer = () => {
     ]).then(answers => {
         const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         myTeam.push(newEngineer);
+        console.log(newEngineer);
+        console.log(myTeam);
         teamBuilderMenu();
     })
 };
@@ -212,6 +216,8 @@ const addIntern = () => {
     ]).then(answers => {
         const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
         myTeam.push(newIntern);
+        console.log(newIntern);
+        console.log(myTeam);
         teamBuilderMenu();
     })
 };
@@ -219,12 +225,11 @@ const addIntern = () => {
 const generateTeam = () => {
 console.log(`
 =========================
-\nFinish building your team
+\nTeam Profiles Built Successfully!
 \n========================
 `);
 
-fs.appendFile("./dist/myTeam.html", generateTeamHTML(myTeam), "utf-8");
-
+return fs.writeFileSync("./dist/myTeam.html", generateTeamHTML(myTeam));
 }
 
 addManager();

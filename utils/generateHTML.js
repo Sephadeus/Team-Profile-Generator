@@ -1,8 +1,12 @@
 const buildTeam = (team) => {
-    const page = [];
 
+    console.log(team);
+
+    let page = [];
+    
+//Manager profile template
     const managerProfile = manager => {
-        let managerHTML = `<div id="team" class="team">
+        let managerHTML = `
         <section class="profile manager">
             <h2 class="employee-name">${manager.name}</h2>
             <br>
@@ -15,7 +19,10 @@ const buildTeam = (team) => {
         </section>`;
 
          page.push(managerHTML);
+         console.log(page)
     }
+
+    //Engineer profile template
     const engineerProfile = engineer => {
         let engineerHTML = `<section class="profile engineer">
         <h2 class="employee-name">${engineer.name}</h2>
@@ -31,6 +38,7 @@ const buildTeam = (team) => {
     page.push(engineerHTML);
     }
 
+    //Intern profile template
     const internProfile = intern => {
         let internHTML = `<section class="profile intern">
         <h2 class="employee-name">${intern.name}</h2>
@@ -50,16 +58,14 @@ const buildTeam = (team) => {
 
         if(team[i].getRole == "Manager") {
             managerProfile(team[i]);
-        } else if (team[i].getRole == "Engineer") {
+        } if (team[i].getRole == "Engineer") {
             engineerProfile(team[i]);
-        } else if(team[i].getRole == "Intern") {
+        } if(team[i].getRole == "Intern") {
             internProfile(team[i]);
-        } else {
-            console.log("Something went awry");
-        }
-    }
+        } 
 
     return page.join('');
+}
 }
 
 module.exports = team => {
@@ -80,5 +86,5 @@ module.exports = team => {
             ${buildTeam(team)}
         </div>
     </body>
-    </html>`
+    </html>`;
 }
