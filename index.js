@@ -3,7 +3,8 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const fs = require("fs");
-const { buildTeam } = require("./utils/generateHTML.js");
+//const { buildTeam } = require("./utils/generateHTML.js");
+const generateHTML = require("./utils/generateHTML.js");
 var myTeam = [];
 
 const addManager = () => {
@@ -63,8 +64,8 @@ const addManager = () => {
     ]).then(answers => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         myTeam.push(newManager); 
-        console.log(newManager);
-        console.log(myTeam);
+        // console.log(newManager);
+        // console.log(myTeam);
         teamBuilderMenu();
     })
 };
@@ -151,8 +152,8 @@ const addEngineer = () => {
     ]).then(answers => {
         const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         myTeam.push(newEngineer);
-        console.log(newEngineer);
-        console.log(myTeam);
+        // console.log(newEngineer);
+        // console.log(myTeam);
         teamBuilderMenu();
     })
 };
@@ -216,15 +217,18 @@ const addIntern = () => {
     ]).then(answers => {
         const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
         myTeam.push(newIntern);
-        console.log(newIntern);
-        console.log(myTeam);
+        // console.log(newIntern);
+        // console.log(myTeam);
         teamBuilderMenu();
     })
 };
 
 const generateTeam = () => {
 
-fs.writeFileSync("./dist/myTeam.html", buildTeam(myTeam));
+console.log(generateHTML(myTeam));
+
+
+fs.writeFileSync("./dist/myTeam.html", generateHTML(myTeam));
   
 return console.log(`
 =========================
