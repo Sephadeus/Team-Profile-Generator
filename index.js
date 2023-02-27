@@ -229,8 +229,7 @@ console.log(generateHTML(myTeam));
 
 fs.writeFileSync("./dist/myTeam.html", generateHTML(myTeam));
   
-return console.log(`
-=========================
+return console.log(`=========================
 \nTeam Profiles Built Successfully!
 \n========================
 `);
