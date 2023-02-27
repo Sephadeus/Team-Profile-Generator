@@ -1,4 +1,4 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![badge]()
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![]()
 
   # Team Profile Generator
 
@@ -42,7 +42,8 @@ First, clone the repository into a new directory from the GitHub repo. Then, nav
   
 ## Usage
   
-Once the steps above have been completed, simply answer the questions in the command line by typing your answer and pressing 'Enter'. The application will do the rest.
+Once the steps above have been completed, simply answer the questions in the command line by typing your answer and pressing 'Enter'. The application will do the rest. Click this link to view a demonstration --> https://user-images.githubusercontent.com/90430093/221681544-f44b47e1-7fa8-427f-b06b-3ae1fd0861aa.mp4
+
   
 ## Credits
   
